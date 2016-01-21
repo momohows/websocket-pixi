@@ -19,6 +19,8 @@ var limit = 4;
 wss.on('connection', function (ws) {
 
     console.log("=====> WebSocket Connection <======");
+    console.log("=====> WebSocket Connection <======");
+    console.log("=====> WebSocket Connection <======");
     console.dir(ws.upgradeReq.headers);
     console.log("===================================");
 
