@@ -108,7 +108,7 @@ wss.on('connection', function (ws) {
 
 
             /* 給頻道的Leader */
-            case "saveMemberData":
+            case "memberToLeader":
                 wss.clients.forEach(function (c) {
                     if (
                         lookup[c.upgradeReq.headers["sec-websocket-key"]].key == data.key
@@ -121,7 +121,7 @@ wss.on('connection', function (ws) {
 
 
             /* 廣播給頻道內全部的成員 */
-            case "leaderToAll":
+            case "leaderToMembers":
                 data.act = "toAllMembers";
                 wss.clients.forEach(function (c) {
                     if (lookup[c.upgradeReq.headers["sec-websocket-key"]].key == data.key) {
