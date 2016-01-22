@@ -18,9 +18,9 @@ var limit = 4;
 //socket server監聽
 wss.on('connection', function (ws) {
 
-    console.log("=====> WebSocket Connection <======");
+    /*console.log("=====> WebSocket Connection <======");
     console.dir(ws.upgradeReq.headers);
-    console.log("===================================");
+    console.log("===================================");*/
 
     lookup[ws.upgradeReq.headers["sec-websocket-key"]] = {
         key: "",
