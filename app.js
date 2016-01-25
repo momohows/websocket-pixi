@@ -18,9 +18,6 @@ var limit = 4;
 //socket server監聽
 wss.on('connection', function (ws) {
 
-    /*console.log("=====> WebSocket Connection <======");
-    console.dir(ws.upgradeReq.headers);
-    console.log("===================================");*/
 
     lookup[ws.upgradeReq.headers["sec-websocket-key"]] = {
         key: "",
@@ -104,6 +101,17 @@ wss.on('connection', function (ws) {
                         }
                     });
                 }
+                break;
+
+            case "saveDeviceData":
+                wss.clients.forEach(function (c) {
+                    if (
+                        lookup[c.upgradeReq.headers["sec-websocket-key"]].key == data.key
+                        && lookup[c.upgradeReq.headers["sec-websocket-key"]].memberId == 1
+                    ) {
+                        c.send(JSON.stringify(data));
+                    }
+                });
                 break;
 
 
