@@ -130,7 +130,6 @@ wss.on('connection', function (ws) {
 
             /* 廣播給頻道內全部的成員 */
             case "updateGame":
-                data.act = "leaderToMembers";
                 wss.clients.forEach(function (c) {
                     if (lookup[c.upgradeReq.headers["sec-websocket-key"]].key == data.key) {
                         c.send(JSON.stringify(data));
