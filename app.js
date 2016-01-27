@@ -125,7 +125,6 @@ wss.on('connection', function (ws) {
                 });
                 break;
 
-
             /* 廣播給頻道內全部的成員 */
             case "updateChannelStatus":
                 wss.clients.forEach(function (c) {
