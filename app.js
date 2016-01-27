@@ -18,7 +18,6 @@ var limit = 4;
 //socket server監聽
 wss.on('connection', function (ws) {
 
-
     lookup[ws.upgradeReq.headers["sec-websocket-key"]] = {
         key: "",
         act: "",
@@ -71,7 +70,6 @@ wss.on('connection', function (ws) {
                     if (!is_channel) data.memberId = channels[data.key][ws.upgradeReq.headers["sec-websocket-key"]].id;
                     if (!is_channel) if (ids > limit + 1) data.memberId = 0; //鎖定頻道最多只能 n 人
                     ws.send(JSON.stringify(data));
-
 
                     if (!is_channel) is_channel = true;
                     //3. 將 id 與頻道人數資訊廣撥給頻道內所有人
@@ -150,13 +148,6 @@ wss.on('connection', function (ws) {
                 //console.log("keepConnectting");
                 break;
 
-
-            //一般常駐事件
-            case "enter":
-            case "buffer_web":
-            case "buffer_mob":
-            case "loadok_web":
-            case "loadok_mob":
             case "mob":
                 //0. 驗證身分
                 if (
