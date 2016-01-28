@@ -25,8 +25,9 @@ wss.on('connection', function (ws) {
         totalMembers: 0
     };
 
-    
 
+
+    
     var is_channel = false;
     ws.on('message', function (data) {
 
