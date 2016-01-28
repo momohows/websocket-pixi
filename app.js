@@ -111,8 +111,7 @@ wss.on('connection', function (ws) {
                     }
                 });
                 break;
-
-
+            
             /* 給頻道的Leader */
             case "memberToLeader":
                 wss.clients.forEach(function (c) {
