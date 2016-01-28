@@ -25,6 +25,7 @@ wss.on('connection', function (ws) {
         totalMembers: 0
     };
 
+    
     var is_channel = false;
     ws.on('message', function (data) {
 
@@ -101,7 +102,7 @@ wss.on('connection', function (ws) {
                 }
                 break;
 
-            
+
             case "saveDeviceData":
                 wss.clients.forEach(function (c) {
                     if (
