@@ -101,6 +101,7 @@ wss.on('connection', function (ws) {
                 }
                 break;
 
+            
             case "saveDeviceData":
                 wss.clients.forEach(function (c) {
                     if (
@@ -113,7 +114,7 @@ wss.on('connection', function (ws) {
                 break;
 
 
-            
+
 
             /* 給頻道的Leader */
             case "memberToLeader":
