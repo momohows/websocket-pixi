@@ -27,7 +27,6 @@ wss.on('connection', function (ws) {
 
 
 
-
     var is_channel = false;
     ws.on('message', function (data) {
 
@@ -55,7 +54,7 @@ wss.on('connection', function (ws) {
                             }
                         }
 
-                        
+
                         //id 只會累加，不會補到斷線 id 的空洞中，因為遊戲有任一個人斷線就重來
                         if (ids < limit + 1) {
                             //頻道人數在指定範圍內才配發 id ，不然就是 0
